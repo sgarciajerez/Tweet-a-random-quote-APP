@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit{
 
   loadQuote(){
     this.api.getQuote().subscribe((res)=>{
-      this.quote=res[0];
-      console.log(this.quote);
-      
+      this.quote=res[0];    
     })
   }
 
