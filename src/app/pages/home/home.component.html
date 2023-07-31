@@ -1,5 +1,5 @@
-<section>
-  <div *ngIf="quote; else loading">
+<section *ngIf="loaded">
+  <div>
     <app-quotes-box [quote]="quote"></app-quotes-box>
     
     <button (click)="loadQuote()">
@@ -9,8 +9,9 @@
       </div>
     </button>
   </div>
-  
-  <ng-template #loading>
-    <div class="spinner"></div>
-  </ng-template>
 </section>
+
+<div class="loading" *ngIf="!loaded">
+  <div class="spinner"></div>
+</div>
+

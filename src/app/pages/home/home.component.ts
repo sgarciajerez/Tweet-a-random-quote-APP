@@ -10,10 +10,12 @@ import { ApiService } from 'src/app/services/api.service';
 export class HomeComponent implements OnInit{
 
   quote!:Quote;
+  loaded:boolean=false;
 
   constructor(private api:ApiService){}
   
   ngOnInit(): void {
+    this.waitQuote();
     this.loadQuote();         
   }
 
@@ -21,6 +23,12 @@ export class HomeComponent implements OnInit{
     this.api.getQuote().subscribe((res)=>{
       this.quote=res[0];    
     })
+  }
+
+  waitQuote(){
+    setTimeout(() => {
+      this.loaded=true;    
+    }, 500);
   }
 
 }
