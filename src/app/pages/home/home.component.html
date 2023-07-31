@@ -1,0 +1,8 @@
+<div *ngIf="quote; else loading">
+    <app-quotes-box [quote]="quote"></app-quotes-box>
+    <button (click)="loadQuote()">New Quote</button>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
